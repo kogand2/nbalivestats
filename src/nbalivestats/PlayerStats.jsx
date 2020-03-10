@@ -13,7 +13,7 @@ class PlayerStats extends React.Component{
 
     retrievePlayerId = () => {
         axios.get(`https://www.balldontlie.io/api/v1/players?search=${this.state.playerName}`)
-        .then(async response => {
+        .then(response => {
             if(response.data.data.length > 1){
                 alert("Please be more specific with the name.")
             }else if(response.data.data[0] === undefined){
@@ -28,7 +28,7 @@ class PlayerStats extends React.Component{
 
     retrievePlayerStats = (playerId) => {
         axios.get(`https://www.balldontlie.io/api/v1/season_averages?season=2019&player_ids[]=${playerId}`)
-        .then(async response => {
+        .then(response => {
             if(response.data.data[0] === undefined){
                 alert("This player has not played this season.")
             }else{

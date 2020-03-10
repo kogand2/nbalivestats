@@ -17,7 +17,7 @@ class GameStats extends React.Component{
 
     retrieveGames = () => {
         axios.get(`https://www.balldontlie.io/api/v1/games?start_date=${this.state.date}&end_date=${this.state.date}`)
-        .then(async response => {
+        .then(response => {
             this.setState({Games: response.data.data})
             this.sortGames()
         }).catch(e => {
